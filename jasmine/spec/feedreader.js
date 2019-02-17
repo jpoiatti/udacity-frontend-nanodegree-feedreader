@@ -145,7 +145,6 @@ $(function() {
                 // Gets the feed's first element title and 
                 // stores it in feed0FirstTitle variable.
                 feed0FirstTitle = $('h1.header-title')[0].innerText;
-            });
 
             /* The same as the call of loadFeed above, but 
              * using the second feed (element index 1 from allFeeds 
