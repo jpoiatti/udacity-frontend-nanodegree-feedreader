@@ -146,16 +146,19 @@ $(function() {
                 // stores it in feed0FirstTitle variable.
                 feed0FirstTitle = $('h1.header-title')[0].innerText;
 
-            /* The same as the call of loadFeed above, but 
-             * using the second feed (element index 1 from allFeeds 
-             * array).
-             */
-            loadFeed(1, () => {
-                feed1FirstURL = $('body > div.feed > a:nth-child(1)')[0].href;
-                feed1FirstTitle = $('h1.header-title')[0].innerText;
-                done();
+                /* The same as the call of loadFeed above, but 
+                * using the second feed (element index 1 from allFeeds 
+                * array).
+                */
+                loadFeed(1, () => {
+                    feed1FirstURL = $('body > div.feed > a:nth-child(1)')[0].href;
+                    feed1FirstTitle = $('h1.header-title')[0].innerText;
+
+                    // Calls done() function to signalize the asynchronous
+                    // work is finished and we can start the tests.
+                    done();
+                });
             });
-            
         });
         
         /* This test ensures that when a new feed is loaded
