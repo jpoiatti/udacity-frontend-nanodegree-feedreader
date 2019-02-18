@@ -62,7 +62,7 @@ $(function() {
          * hiding/showing of the menu element.
          */
         it('is hidden by default', () => {
-            // 'menu-hidden' is responsible for hidding the
+            // 'menu-hidden' is responsible for hiding the
             // menu when it's present in 'body' element,
             // therefore if body has this class, the menu
             // is hidden.
@@ -91,7 +91,7 @@ $(function() {
         /* Calls loadFeed with argument 0 to load 
          * the first feed (element 0 of array allFeeds).
          * Uses 'done' as the second (and callback) argument because
-         * the loadFeed function is asynchronous, thefore
+         * the loadFeed function is asynchronous, therefore
          * ensures it waits until feed 0 has been loaded 
          * to only then proceed with the tests defined in 'it'.
          */
@@ -105,7 +105,7 @@ $(function() {
          * Jasmine's beforeEach and done() function
          * in the call of loadFeed above.
          */
-        it('have at least a single .entry element within .feed container', (done) => {
+        it('have at least a single .entry element within .feed container', () => {
             // Checks if .feed exists, it is defined and not null.
             expect($('.feed')).toExist();
             expect($('.feed .entry')).toBeDefined();
@@ -116,11 +116,7 @@ $(function() {
             // meaning that .entry has at least one article.entry.
             expect($('.feed .entry').length).toBeGreaterThan(0);
 
-            // As it was signalized to the beforeEach block above that it 
-            // should work asynchronously, the 'done()' function 
-            // is called here to resolve the promise made under the 
-            // hood with beforeEach working asynchronously.
-            done();
+            
         });
     });
 
@@ -165,7 +161,7 @@ $(function() {
          * by the loadFeed function, the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
-        it('updates the content when a new feed is selected', (done) => {
+        it('updates the content when a new feed is selected', () => {
             // Tests if the feeds' first titles and URLs are defined.
             expect(feed0FirstTitle).toBeDefined();
             expect(feed0FirstURL).toBeDefined();
@@ -185,11 +181,6 @@ $(function() {
             // Tests if feed0 first entry title is different from
             // feed1 first entry title.
             expect(feed0FirstTitle).not.toBe(feed1FirstTitle);
-
-            // The 'done()' function is called here to resolve
-            // the promise made under the hood with beforeEach
-            // working asynchronously.
-            done();
         });
     });
 }());
